@@ -29,7 +29,15 @@ class Parser
         }
     }
 
-    // private function parIf()
+    private function parIf()
+    {
+        $patter = 'if\s+(.*?)';
+        $repIf = preg_match($patter, $this->content);
+        if ($repIf) {
+            // doing.
+        }
+    }
+
     public function compile($parser_file) {
         $this->parVar();
         file_put_contents($parser_file, $this->content);
