@@ -26,7 +26,7 @@ class View
 
     public function display($file)
     {
-        $tpl_file = Config::get('view_path') . $file .Config::get('view_suffxi');
+        $tpl_file = Config::get('view_path') . $file .Config::get('view_suffix');
         if (!file_exists($tpl_file)) {
             exit('模板文件不存在.');
         }
@@ -54,6 +54,7 @@ class View
         if (Config::get('auto_cache')) {
             file_put_contents($cache_file, ob_get_contents());
             ob_end_clean();
+            return include $cache_file;
         }
     }
 

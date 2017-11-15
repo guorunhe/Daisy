@@ -13,7 +13,7 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $this->assign('name', 'Daisy---Admin');
+        $this->assign('name', 'Daisy---毕美丽');
         $this->display();
     }
 }

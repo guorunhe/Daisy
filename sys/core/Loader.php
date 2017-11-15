@@ -94,8 +94,10 @@ class Loader
       */
     protected static function loadMappedFile($prefix, $relative_class)
     {
+        // echo var_export([$prefix, $relative_class], true);
+        // exit;
         // 命名空间前缀中有base目录.
-        foreach (self::$prefixes[$prefile] as $base_dir) {
+        foreach (self::$prefixes[$prefix] as $base_dir) {
             // 用base目录替代命名空间前缀.
             // 在相对类名中用目录分隔符'/'来替换命名空间分隔符'\'
             // 在后面追加.php组成$file的绝对路径.

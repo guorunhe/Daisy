@@ -56,12 +56,12 @@ class App
         if (file_exists($controller_file)) {
             require $controller_file; // 引入该控制器.
             $className = 'module\controller\IndexController'; // 命名空间字符串示例.
-            $className = str_repace('module', $module, $className); // 使用字符串对应的模块名和控制器名.
-            $className = str_repace('IndexController', $controller . 'Controller', $className);
+            $className = str_replace('module', $module, $className); // 使用字符串对应的模块名和控制器名.
+            $className = str_replace('IndexController', $controller . 'Controller', $className);
             $controller = new $className;
+            $controller->setTpl($action);
             // 判断访问的方法是否存在.
             if (method_exists($controller, $action)) {
-                $controller->setTpl($action);
                 $controller->$action();
             } else {
                 die('该方法不存在.');
