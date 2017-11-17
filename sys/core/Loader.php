@@ -70,6 +70,11 @@ class Loader
             // 剩余的就是相对类名称.
             $relative_class = substr($class, $pos + 1);
 
+            if (in_array('model', $prefixArr = explode('\\', $prefix))) {
+                $prefix = $prefixArr[0] . '\\';
+                $relative_class = $prefixArr[1] . '\\' . $relative_class;
+            }
+
             // 利用命名空间前缀和相对类名来加载映射文件.
             $mapped_file = self::loadMappedFile($prefix, $relative_class);
             if ($mapped_file) {
@@ -94,8 +99,6 @@ class Loader
       */
     protected static function loadMappedFile($prefix, $relative_class)
     {
-        // echo var_export([$prefix, $relative_class], true);
-        // exit;
         // 命名空间前缀中有base目录.
         foreach (self::$prefixes[$prefix] as $base_dir) {
             // 用base目录替代命名空间前缀.

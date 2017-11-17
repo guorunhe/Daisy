@@ -89,7 +89,7 @@ class Model
         $keys = '';
         $values = '';
         foreach ($data as $key => $value){
-            $keys .= "key,";
+            $keys .= "$key,";
             $values .= "'" . $value . "',";
         }
         $keys = substr($keys, 0, strlen($keys) -1);
@@ -191,7 +191,7 @@ class Model
             时间:$time\r\n\r\n";
         $server_date = date("Y-m-d");
         $filename = $server_date . '_SQL.txt';
-        $fail_path = RUNTIME_PATH . 'log' . DS . $filename;
+        $file_path = RUNTIME_PATH . 'log' . DS . $filename;
         $error_content = $message;
         $file = RUNTIME_PATH . 'log'; // 设置保存路径.
         // 建立文件夹.

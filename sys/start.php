@@ -15,6 +15,7 @@ require CORE_PATH . 'Loader.php';
 $loader = new core\Loader();
 $loader->addNamespace('core', ROOT_PATH . 'sys' . DS . 'core'); // 添加命名空间对应base目录.
 $loader->addNamespace('home', APP_PATH . 'home');
+$loader->addNamespace('shop', APP_PATH . 'shop');
 $loader->register(); // 注册命名空间.
 
 // 加载全局配置.
